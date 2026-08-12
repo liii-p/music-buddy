@@ -123,8 +123,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
 ## Roadmap
-
+### V1 (MVP)
 - [ ] Tuner
+- [ ] Auth/Login with Supabase Auth
 - [ ] Practice session logger
 - [ ] Routine builder
     - [ ] Weekly schedule
@@ -134,6 +135,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] Time practiced per category
     - [ ] Charts
 - [ ] MusicBuddyAI
+
+### V2
+- [ ] Android
+- [ ] iOS
+- [ ] Live sync across devices (Supabase Realtime)
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
