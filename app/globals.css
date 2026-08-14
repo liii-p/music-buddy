@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+    /* Background Colour */
+    --color-midnight: oklch(0.16 0.025 290);
+    /* Text Colour */
+    --color-bright-white: oklch(0.94 0.01 290);
+    /* Select Colour */
+    --color-select: rgba(255,255,255,0.06);
+}
+
+body {
+    @apply bg-midnight text-bright-white
+}

@@ -66,6 +66,7 @@ With Music Buddy, you can track your practice sessions, what you did and what ar
 
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
+* [![Tailwind CSS][Tailwind]][Tailwind-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,7 +120,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Preliminary Designs
+Designed with the help of Claude Design. May be subject to change.
 
+### Tuner Design v1
+<img src="public/images/Tuner-selection.png"/>
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -162,6 +167,8 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 [linkedin-url]: https://linkedin.com/in/lianna-pyman
 [product-screenshot]: images/screenshot.png
 <!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
+[Tailwind]: https://img.shields.io/badge/tailwind-css?style=for-the-badge&logo=tailwindcss&color=%232334D0
+[Tailwind-url]: https://tailwindcss.com
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB

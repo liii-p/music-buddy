@@ -1,3 +1,9 @@
+import Tuner from "../components/tuner/Tuner";
+
 export default function Page() {
-  return <h1>Hello, Next.js!</h1>
+  return (
+    <div>
+      <Tuner />
+    </div>
+  )
 }
