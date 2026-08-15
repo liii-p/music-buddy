@@ -1,0 +1,28 @@
+{
+  "Guitar": [
+    { "stringName": "E", "octave": 2, "hertz": 82.41 },
+    { "stringName": "A", "octave": 2, "hertz": 110.00 },
+    { "stringName": "D", "octave": 3, "hertz": 146.83 },
+    { "stringName": "G", "octave": 3, "hertz": 196.00 },
+    { "stringName": "B", "octave": 3, "hertz": 246.94 },
+    { "stringName": "E", "octave": 4, "hertz": 329.63 }
+  ],
+  "Bass": [
+    { "stringName": "E", "octave": 1, "hertz": 41.20 },
+    { "stringName": "A", "octave": 1, "hertz": 55.00 },
+    { "stringName": "D", "octave": 2, "hertz": 73.42 },
+    { "stringName": "G", "octave": 2, "hertz": 98.00 }
+  ],
+  "Violin": [
+    { "stringName": "G", "octave": 3, "hertz": 196.00 },
+    { "stringName": "D", "octave": 4, "hertz": 293.66 },
+    { "stringName": "A", "octave": 4, "hertz": 440.00 },
+    { "stringName": "E", "octave": 5, "hertz": 659.25 }
+  ],
+  "Ukelele": [
+    { "stringName": "G", "octave": 4, "hertz": 392.00 },
+    { "stringName": "C", "octave": 4, "hertz": 261.63 },
+    { "stringName": "E", "octave": 4, "hertz": 329.63 },
+    { "stringName": "A", "octave": 4, "hertz": 440.00 }
+  ]
+}
