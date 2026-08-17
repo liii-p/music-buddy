@@ -1,12 +1,12 @@
 import { useState } from "react";
-import strings from "../../data/strings.json";
-import Strings from "./Strings";
+import strings from "../../../data/strings.json";
+import StringsPanel from "./StringsPanel";
 
 type StringsWrapperProps = {
   selectedInstrument: string;
 };
 
-const StringsWrapper: React.FunctionComponent<StringsWrapperProps> = ({
+const StringsPanelWrapper: React.FunctionComponent<StringsWrapperProps> = ({
   selectedInstrument,
 }) => {
   const stringsInfo = strings[selectedInstrument as keyof typeof strings];
@@ -18,7 +18,7 @@ const StringsWrapper: React.FunctionComponent<StringsWrapperProps> = ({
       {stringsInfo.map((string) => {
         const stringId = `${string.stringName}${string.octave}`;
         return (
-          <Strings
+          <StringsPanel
             key={`${selectedInstrument}${stringId}`}
             stringId={stringId}
             isActive={stringId === activeStringId}
@@ -33,4 +33,4 @@ const StringsWrapper: React.FunctionComponent<StringsWrapperProps> = ({
   );
 };
 
-export default StringsWrapper;
+export default StringsPanelWrapper;

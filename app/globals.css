@@ -1,22 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 @import "tailwindcss";
 
 @theme {
-    /* Background colour */
-    --color-midnight: oklch(0.16 0.025 290);
-    /* Glass background colour */
-    --color-glass: rgba(255, 255, 255, 0.045);
-    /* Text colour */
-    --color-bright-white: oklch(0.94 0.01 290);
-    /* Select colour */
-    --color-select: rgba(255,255,255,0.06);
-    --color-grey: oklch(0.72 0.02 290);
-    --background-image-rainbow: linear-gradient(90deg, oklch(0.72 0.19 340), oklch(0.62 0.19 300), oklch(0.68 0.19 250));
-    --font-jetbrains: "Jetbrains Mono", monospace;
+  /* Background colour */
+  --color-midnight: oklch(0.16 0.025 290);
+  /* Glass background colour */
+  --color-glass: rgba(255, 255, 255, 0.045);
+  /* Text colour */
+  --color-bright-white: oklch(0.94 0.01 290);
+  /* Select colour */
+  --color-select: rgba(255, 255, 255, 0.06);
+  --color-grey: oklch(0.72 0.02 290);
+  --background-image-rainbow: linear-gradient(
+    90deg,
+    oklch(0.72 0.19 340),
+    oklch(0.62 0.19 300),
+    oklch(0.68 0.19 250)
+  );
+  --background-image-circle-purple: radial-gradient(
+    circle,
+    oklch(0.62 0.19 300 / 0.45),
+    transparent 70%
+  );
+  --background-image-circle-pink: radial-gradient(
+    circle,
+    oklch(0.72 0.19 340 / 0.3),
+    transparent 70%
+  );
+  --background-image-circle-blue: radial-gradient(
+    circle,
+    oklch(0.68 0.19 250 / 0.4),
+    transparent 70%
+  );
+  --font-jetbrains: "Jetbrains Mono", monospace;
 }
 
 body {
-    @apply bg-midnight text-bright-white
+  @apply bg-midnight text-bright-white;
 }
 
 /* Native dropdown popups render as an opaque layer, so a translucent
@@ -27,13 +47,17 @@ body {
    make sure the popup picks up the page font. */
 .tuner-select,
 .tuner-select option {
-    background-color: color-mix(in oklab, white 6%, var(--color-midnight));
-    color: var(--color-bright-white);
-    font-family: "Manrope", sans-serif;
+  background-color: color-mix(in oklab, white 6%, var(--color-midnight));
+  color: var(--color-bright-white);
+  font-family: "Manrope", sans-serif;
 }
 
 .active-string {
-    background: linear-gradient(90deg, oklch(0.72 0.19 340 / 0.18), oklch(0.68 0.19 250 / 0.18));
-    transition: 0.15s;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(
+    90deg,
+    oklch(0.72 0.19 340 / 0.18),
+    oklch(0.68 0.19 250 / 0.18)
+  );
+  transition: 0.15s;
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }

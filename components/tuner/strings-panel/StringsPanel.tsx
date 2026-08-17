@@ -9,7 +9,7 @@ type StringsProps = {
   stringId: string;
 };
 
-const Strings: React.FunctionComponent<StringsProps> = ({
+const StringsPanel: React.FunctionComponent<StringsProps> = ({
   stringName,
   octave,
   hertz,
@@ -36,4 +36,4 @@ const Strings: React.FunctionComponent<StringsProps> = ({
   );
 };
 
-export default Strings;
+export default StringsPanel;
