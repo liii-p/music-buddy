@@ -28,10 +28,10 @@ body {
 .tuner-select option {
     background-color: color-mix(in oklab, white 6%, var(--color-midnight));
     color: var(--color-bright-white);
-    font-family: inherit;
+    font-family: "Manrope", sans-serif;
 }
 
-.string-active {
+.active-string {
     background: linear-gradient(90deg, oklch(0.72 0.19 340 / 0.18), oklch(0.68 0.19 250 / 0.18));
     transition: 0.15s;
     border: 1px solid rgba(255, 255, 255, 0.14);
