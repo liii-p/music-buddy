@@ -1,18 +1,19 @@
-import { useState } from "react";
-import strings from "../../../data/strings.json";
+import { Dispatch, SetStateAction } from "react";
 import StringsPanel from "./StringsPanel";
 
 type StringsWrapperProps = {
+  stringsInfo: { stringName: string; octave: number; hertz: number }[];
   selectedInstrument: string;
+  activeStringId: string;
+  setActiveStringId: Dispatch<SetStateAction<string>>;
 };
 
 const StringsPanelWrapper: React.FunctionComponent<StringsWrapperProps> = ({
+  stringsInfo,
   selectedInstrument,
+  activeStringId,
+  setActiveStringId,
 }) => {
-  const stringsInfo = strings[selectedInstrument as keyof typeof strings];
-  const [isActive, setIsActive] = useState("");
-  const activeStringId =
-    isActive || `${stringsInfo[0].stringName}${stringsInfo[0].octave}`;
   return (
     <div>
       {stringsInfo.map((string) => {
@@ -22,7 +23,7 @@ const StringsPanelWrapper: React.FunctionComponent<StringsWrapperProps> = ({
             key={`${selectedInstrument}${stringId}`}
             stringId={stringId}
             isActive={stringId === activeStringId}
-            setIsActive={setIsActive}
+            setIsActive={setActiveStringId}
             stringName={string.stringName}
             octave={string.octave}
             hertz={string.hertz}

@@ -3,11 +3,24 @@ import { useState } from "react";
 import StringsWrapper from "./strings-panel/StringsPanelWrapper";
 import RainbowButton from "../RainbowButton";
 import ReferencePitch from "./strings-panel/ReferencePitch";
+import TuningPanel from "./tuning-panel/TuningPanel";
+import strings from "../../data/strings.json";
+import { CONCERT_PITCH } from "../../lib/pitch";
 
 const Tuner = () => {
   const [selectedInstrument, setSelectedInstrument] =
     useState<string>("guitar");
-  const [refPitch, setRefPitch] = useState(440);
+  const [refPitch, setRefPitch] = useState(CONCERT_PITCH);
+  const [activeStringId, setActiveStringId] = useState("");
+  const [isTuning, setIsTuning] = useState(false);
+
+  const stringsInfo = strings[selectedInstrument as keyof typeof strings];
+  /* Falling back to the first string covers both the initial empty id and an
+     id left over from an instrument that no longer has that string. */
+  const activeString =
+    stringsInfo.find(
+      (string) => `${string.stringName}${string.octave}` === activeStringId,
+    ) ?? stringsInfo[0];
 
   return (
     <>
@@ -36,14 +49,24 @@ const Tuner = () => {
             <p className="text-xs text-grey font-bold tracking-widest">
               STRINGS
             </p>
-            <StringsWrapper selectedInstrument={selectedInstrument} />
+            <StringsWrapper
+              stringsInfo={stringsInfo}
+              selectedInstrument={selectedInstrument}
+              activeStringId={`${activeString.stringName}${activeString.octave}`}
+              setActiveStringId={setActiveStringId}
+            />
             <hr />
             <ReferencePitch refPitch={refPitch} setRefPitch={setRefPitch} />
-            <RainbowButton buttonText={"Start Tuning"} />
+            <RainbowButton
+              buttonText={isTuning ? "Stop Tuning" : "Start Tuning"}
+              onClick={() => setIsTuning(!isTuning)}
+            />
           </div>
-          <div className="bg-glass border border-white/9 h-96 flex flex-col order-1 md:order-2 rounded-3xl">
-            Rectangle 2
-          </div>
+          <TuningPanel
+            activeString={activeString}
+            refPitch={refPitch}
+            isTuning={isTuning}
+          />
         </section>
       </div>
     </>

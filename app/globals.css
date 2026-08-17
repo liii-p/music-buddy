@@ -11,6 +11,11 @@
   /* Select colour */
   --color-select: rgba(255, 255, 255, 0.06);
   --color-grey: oklch(0.72 0.02 290);
+  /* Tuning states. Sharp and flat reuse the exact hues at either end of the
+     rainbow gradient so the dial's puck matches the fill beneath it. */
+  --color-sharp: oklch(0.72 0.19 340);
+  --color-flat: oklch(0.68 0.19 250);
+  --color-in-tune: oklch(0.72 0.19 155);
   --background-image-rainbow: linear-gradient(
     90deg,
     oklch(0.72 0.19 340),
@@ -60,4 +65,21 @@ body {
   );
   transition: 0.15s;
   border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* The puck takes its colour from a single text-* utility (text-sharp /
+   text-flat / text-in-tune) so the fill and the glow stay in sync, and one
+   transition on `color` cross-fades both at once. */
+.dial-puck {
+  background-color: currentColor;
+  box-shadow: 0 0 18px 4px color-mix(in oklab, currentColor 45%, transparent);
+  transition:
+    left 120ms ease-out,
+    color 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dial-puck {
+    transition: none;
+  }
 }
