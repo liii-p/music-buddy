@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Background colour */
+  --color-midnight: oklch(0.16 0.025 290);
+  /* Glass background colour */
+  --color-glass: rgba(255, 255, 255, 0.045);
+  /* Text colour */
+  --color-bright-white: oklch(0.94 0.01 290);
+  /* Select colour */
+  --color-select: rgba(255, 255, 255, 0.06);
+  --color-grey: oklch(0.72 0.02 290);
+  /* Tuning states. Sharp and flat reuse the exact hues at either end of the
+     rainbow gradient so the dial's puck matches the fill beneath it. */
+  --color-sharp: oklch(0.72 0.19 340);
+  --color-flat: oklch(0.68 0.19 250);
+  --color-in-tune: oklch(0.72 0.19 155);
+  --background-image-rainbow: linear-gradient(
+    90deg,
+    oklch(0.72 0.19 340),
+    oklch(0.62 0.19 300),
+    oklch(0.68 0.19 250)
+  );
+  --background-image-circle-purple: radial-gradient(
+    circle,
+    oklch(0.62 0.19 300 / 0.45),
+    transparent 70%
+  );
+  --background-image-circle-pink: radial-gradient(
+    circle,
+    oklch(0.72 0.19 340 / 0.3),
+    transparent 70%
+  );
+  --background-image-circle-blue: radial-gradient(
+    circle,
+    oklch(0.68 0.19 250 / 0.4),
+    transparent 70%
+  );
+  --font-jetbrains: "Jetbrains Mono", monospace;
+}
+
+body {
+  @apply bg-midnight text-bright-white;
+}
+
+/* Native dropdown popups render as an opaque layer, so a translucent
+   background doesn't composite with the page - flatten it to a solid
+   color instead. The popup's outer frame takes its background from the
+   select itself (not just the options), so both need the solid color to
+   avoid the browser's default white showing through as a border. Also
+   make sure the popup picks up the page font. */
+.tuner-select,
+.tuner-select option {
+  background-color: color-mix(in oklab, white 6%, var(--color-midnight));
+  color: var(--color-bright-white);
+  font-family: "Manrope", sans-serif;
+}
+
+.active-string {
+  background: linear-gradient(
+    90deg,
+    oklch(0.72 0.19 340 / 0.18),
+    oklch(0.68 0.19 250 / 0.18)
+  );
+  transition: 0.15s;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* The puck takes its colour from a single text-* utility (text-sharp /
+   text-flat / text-in-tune) so the fill and the glow stay in sync, and one
+   transition on `color` cross-fades both at once. */
+.dial-puck {
+  background-color: currentColor;
+  box-shadow: 0 0 18px 4px color-mix(in oklab, currentColor 45%, transparent);
+  transition:
+    left 120ms ease-out,
+    color 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dial-puck {
+    transition: none;
+  }
+}
