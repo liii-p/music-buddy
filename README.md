@@ -116,6 +116,7 @@ I decided to rejig the design a little. I wasn't a fan of the dial in the origin
 ### V1 (MVP)
 
 - [ ] Tuner
+- [ ] Metronome
 - [ ] Auth/Login with Supabase Auth
 - [ ] Practice session logger
 - [ ] Routine builder
