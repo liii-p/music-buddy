@@ -1,5 +1,9 @@
 import useMockPitch from "../../../hooks/useMockPitch";
-import { TuningState, getTuningState, targetFrequency } from "../../../lib/pitch";
+import {
+  TuningState,
+  getTuningState,
+  targetFrequency,
+} from "../../../lib/pitch";
 import Dial, { TONE_CLASSES } from "./Dial";
 
 type TuningPanelProps = {
@@ -36,11 +40,9 @@ const TuningPanel: React.FunctionComponent<TuningPanelProps> = ({
             {frequency.toFixed(2)} Hz
           </p>
         </div>
-
         <div className="w-full max-w-2xl">
           <Dial cents={cents} />
         </div>
-
         <p
           aria-live="polite"
           className={

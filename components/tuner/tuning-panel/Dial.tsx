@@ -49,7 +49,6 @@ const Dial: React.FunctionComponent<DialProps> = ({ cents }) => {
         </p>
         <p className="text-xs text-grey font-bold tracking-widest">SHARP</p>
       </div>
-
       <div className="relative h-10">
         <div
           role="meter"
@@ -82,7 +81,6 @@ const Dial: React.FunctionComponent<DialProps> = ({ cents }) => {
               bar has grown. */}
           <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-in-tune" />
         </div>
-
         <div
           className={
             "dial-puck absolute top-2 w-8 h-8 rounded-full -translate-x-1/2 " +
