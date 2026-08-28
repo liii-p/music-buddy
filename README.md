@@ -156,6 +156,15 @@ I am using GitHub Projects to organise myself and keep track of how I'm progress
 
 <img src="public/images/github-projects.png" />
 
+### 28/08/26
+
+I completed the UI for the tuner last week and I'm pleased with how it turned out. Now I'm venturing into figuring out how to receive and process sound, identify the note and then compare it with the currently selected reference note for a given instrument. Simply because I have recently taken up violin myself (and there are less strings/notes on a violin comparatively lol) I'm going to focus first on getting it to work for the violin. Then so on for each instrument. I was going to look into using the <a href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API'>Web Audio Api</a> directly but now I'm thinking of using an existing library that will enable me to reach my MVP quicker instead of deep diving into the intracacies of audio processing. I have two candidates at the moment:
+
+- Tone.js
+- pitchy
+
+Tone.js has good, detailed docs but I read another developers experience with this package (credit <a href='https://glennreyes.com/posts/tuner'>Glenn Reyes</a>) where they said that the pitch detection was not accurate enough. Comparatively, pitchy seems to offer more accuracy so I've decided to go with pitchy for now. I'm going to break down the Web Audio API ticket/issue into the separate instruments just to give me more focus instead of trying to tackle it all at once. Once I've got it working for a violin, I'm hoping it will be more straight forward to apply it to the rest of the instruments!
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
