@@ -48,7 +48,7 @@ const TuningPanel: React.FunctionComponent<TuningPanelProps> = ({
         <RainbowButton
           buttonText={isTuning ? "Stop Tuning" : "Start Tuning"}
           onClick={() => setIsTuning(!isTuning)}
-          classes="w-full lg:w-3/4"
+          classes="w-full lg:w-1/2"
         />
       </div>
     </div>
