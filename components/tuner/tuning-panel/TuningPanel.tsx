@@ -1,15 +1,16 @@
+import { useState } from "react";
 import useMockPitch from "../../../hooks/useMockPitch";
 import {
   TuningState,
   getTuningState,
   targetFrequency,
 } from "../../../lib/pitch";
+import RainbowButton from "../../RainbowButton";
 import Dial, { TONE_CLASSES } from "./Dial";
 
 type TuningPanelProps = {
   activeString: { stringName: string; octave: number; hertz: number };
   refPitch: number;
-  isTuning: boolean;
 };
 
 const STATUS_TEXT: Record<TuningState, string> = {
@@ -21,8 +22,8 @@ const STATUS_TEXT: Record<TuningState, string> = {
 const TuningPanel: React.FunctionComponent<TuningPanelProps> = ({
   activeString,
   refPitch,
-  isTuning,
 }) => {
+  const [isTuning, setIsTuning] = useState(false);
   const target = targetFrequency(activeString.hertz, refPitch);
   const { cents, frequency } = useMockPitch(target, isTuning);
   const state = getTuningState(cents);
@@ -43,15 +44,12 @@ const TuningPanel: React.FunctionComponent<TuningPanelProps> = ({
         <div className="w-full max-w-2xl">
           <Dial cents={cents} />
         </div>
-        <p
-          aria-live="polite"
-          className={
-            "text-sm font-semibold " +
-            (isTuning ? TONE_CLASSES[state] : "text-grey")
-          }
-        >
-          {isTuning ? STATUS_TEXT[state] : "Press Start Tuning to begin"}
-        </p>
+        {isTuning ? STATUS_TEXT[state] : "Press Start Tuning to begin"}
+        <RainbowButton
+          buttonText={isTuning ? "Stop Tuning" : "Start Tuning"}
+          onClick={() => setIsTuning(!isTuning)}
+          classes="w-full lg:w-3/4"
+        />
       </div>
     </div>
   );

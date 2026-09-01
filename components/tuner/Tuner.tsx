@@ -12,7 +12,6 @@ const Tuner = () => {
     useState<string>("guitar");
   const [refPitch, setRefPitch] = useState(CONCERT_PITCH);
   const [activeStringId, setActiveStringId] = useState("");
-  const [isTuning, setIsTuning] = useState(false);
 
   const stringsInfo = strings[selectedInstrument as keyof typeof strings];
   /* Falling back to the first string covers both the initial empty id and an
@@ -57,16 +56,8 @@ const Tuner = () => {
             />
             <hr />
             <ReferencePitch refPitch={refPitch} setRefPitch={setRefPitch} />
-            <RainbowButton
-              buttonText={isTuning ? "Stop Tuning" : "Start Tuning"}
-              onClick={() => setIsTuning(!isTuning)}
-            />
           </div>
-          <TuningPanel
-            activeString={activeString}
-            refPitch={refPitch}
-            isTuning={isTuning}
-          />
+          <TuningPanel activeString={activeString} refPitch={refPitch} />
         </section>
       </div>
     </>
