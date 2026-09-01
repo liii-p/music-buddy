@@ -40,7 +40,7 @@ const Dial: React.FunctionComponent<DialProps> = ({ cents }) => {
       : { left: "50%", width: fillWidth };
 
   return (
-    <div className="max-w-1/2 mx-auto">
+    <div className="mx-auto lg:max-w-1/2">
       <div className="flex items-baseline justify-between mb-3">
         <p className="text-xs text-grey font-bold tracking-widest">FLAT</p>
         <p className={"font-jetbrains text-base font-semibold " + tone}>
